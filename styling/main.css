@@ -1,0 +1,293 @@
+* {
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 0;
+    margin-left: 0;
+    transition: all 0.5s ease; 
+}
+
+body {
+    font-family: Georgia, serif;
+}
+
+h1, p {
+    cursor: default;
+}
+
+.resumeName {
+    font-size: 2rem;
+}
+
+.resumeName h1 {
+    margin-bottom: 0;
+}
+
+.darkModeToggle {
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+}
+
+.moonIcon {
+    height: 50px;
+    width: 50px;
+}
+
+.skills, .certifications, .education, .experience, .profile {
+    font-size: 1rem;
+}
+
+.header {
+    background-color: #7eb6ff;
+    height: 10%;
+    width: 100vw;
+    margin-left: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+}
+
+.darkMode .header, .darkMode .footer {
+    background-color: #2b3e57;
+}
+
+.aiMode .header, .aiMode .footer {
+    background-color: #9600fa;
+}
+
+.moonIcon path {
+    fill: #0f0f0f;
+}
+
+.darkMode .moonIcon path {
+    fill: #f0f0f0;
+}
+
+.darkMode .caret path {
+    stroke: #f0f0f0;
+}
+
+.aiMode .moonIcon path {
+    fill: #b950ff;
+    stroke: #000000;
+    d: path("M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6Z");
+}
+
+.aiMode .caret path {
+    stroke: #b950ff;
+}
+
+.darkMode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.aiMode {
+    background: linear-gradient(90deg,rgba(110, 53, 181, 1) 0%, rgba(41, 48, 230, 1) 50%, rgba(0, 0, 0, 1) 100%);
+    color: #f0f0f0;
+    font-family: monospace !important;
+}
+
+.container {
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-out; 
+    max-width: 48vw;
+    padding-left: 10px;
+    grid-template-rows: 0fr;
+    min-height: 0;
+}
+
+.container.expanded {
+    max-height: none;
+    padding-bottom: 50px;
+    grid-template-rows: 1fr;
+    transition: all 0.3s ease-out; 
+}
+
+.darkMode .container {
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.aiMode .container {
+    border: none;
+    border-left: 5px solid #95fd88;
+    margin: 10px;
+}
+
+.container h1 {
+    margin-bottom: 0;
+    min-height: 0;
+}
+
+.container p {
+    padding-left: 20px;
+    min-height: 0;
+}
+
+.container-header {
+    height: 10%;
+    margin-left: 1vw;
+    position: relative;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+    width: 50vw;
+    display: flex;
+}
+
+.container-header h1 {
+    margin-bottom: 0;
+    width: 33vw;
+}
+
+.projects {
+    max-width: 100vw !important;
+}
+
+.project {
+    height: 30vw;
+    width: 30vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    position: relative;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.project:hover {
+    transform: scale(1.1);
+    z-index: 90;
+}
+
+.project-header {
+    height: 25vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.project-footer {
+    height: 5vw;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 0 0 5px 5px;
+}
+
+.project-footer p {
+    color: #0f0f0f;
+}
+
+.project a {
+    text-decoration: none;
+}
+
+p a {
+    color: #0f0f0f;
+}
+
+.project-title {
+    font-weight: bold;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+.project-description {
+    font-size: 0.8rem;
+}
+
+.caret {
+    fill: none;
+    z-index: 100;
+    stroke: #000000;
+    stroke-opacity: 0.9;
+    stroke-width: 16;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 50px;
+    transform: rotate(90deg);
+    height: 50px;
+    margin-right: 25px;
+}
+
+.caret.open {
+    transform: rotate(270deg);
+    transition: all 0.3s ease-out;
+}
+
+#certifications-container {
+    margin-bottom: 50px;
+}
+
+.footer {
+    background-color: #7eb6ff;
+    height: 4%;
+    width: 100vw;
+    margin-left: 0;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+}
+
+.footer-icon {
+    margin: 3px;
+}
+
+@media (max-width: 900px) {
+    .project {
+        height: 80vw;
+        width: 80vw;
+        margin-right: 10vw;
+        padding-bottom: 5vw;
+    }
+
+    .project-header {
+        height: 70vw;
+        width: 80vw;
+    }   
+
+    .project-footer {
+        height: 15vw;
+    }
+
+    .container {
+        max-width: 100vw;
+    }
+
+    .container-header {
+        width: 100vw;
+    }
+
+    .container-header h1 {
+        width: 80vw;
+    }
+
+    .header {
+        height: 5%;
+    }
+
+    .resumeName {
+        font-size: 1.2rem;
+    }
+
+    .moonIcon {
+        height: 40px;
+        width: 40px;
+    }
+
+    .footer {
+        
+    }
+}
