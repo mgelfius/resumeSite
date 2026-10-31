@@ -123,6 +123,10 @@ h1, p {
     padding-bottom: 0;
 }
 
+.darkMode .container-header {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
 .container h1 {
     margin-bottom: 0;
     min-height: 0;

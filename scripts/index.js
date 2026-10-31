@@ -28,6 +28,203 @@ function expandContainer(containerId) {
     }
 }
 
+function renderHeader() {
+    let headerDiv = document.createElement("div");
+    let resumeNameDiv = document.createElement("div");
+    let resumeNameH1 = document.createElement("h1");
+    let darkModeToggleDiv = document.createElement("div");
+    let darkModeToggleSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    let darkModeTogglePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+    resumeNameH1.textContent = "Mark Gelfius";
+
+    resumeNameDiv.appendChild(resumeNameH1);
+    resumeNameDiv.setAttribute("class", "resumeName");
+
+    headerDiv.setAttribute("class", "header");
+
+    darkModeToggleSvg.setAttribute("width", "50");
+    darkModeToggleSvg.setAttribute("height", "50");
+    darkModeToggleSvg.setAttribute("viewBox", "0 0 292.299 292.299");
+    darkModeToggleSvg.setAttribute("class", "moonIcon");
+    darkModeToggleSvg.setAttribute("onclick", "darkModeToggle()");
+    darkModeToggleSvg.setAttribute("id", "darkModeMoon");
+
+    darkModeTogglePath.setAttribute("d", "M153.699,292.138C68.95,292.138,0,223.185,0,138.439C0,79.742,32.675,27.002,85.28,0.807 c2.369-1.174,5.215-0.718,7.077,1.144c1.864,1.864,2.345,4.711,1.183,7.074C83.941,28.527,79.077,49.496,79.077,71.33 c0,77.972,63.432,141.407,141.395,141.407c22.08,0,43.247-4.978,62.942-14.777c2.366-1.177,5.213-0.721,7.074,1.141 c1.873,1.867,2.342,4.714,1.177,7.073C265.61,259.195,212.738,292.138,153.699,292.138z");
+    darkModeToggleDiv.setAttribute("class", "darkModeToggle");
+
+    darkModeToggleSvg.appendChild(darkModeTogglePath);
+    darkModeToggleDiv.appendChild(darkModeToggleSvg);
+
+    headerDiv.appendChild(resumeNameDiv);
+    headerDiv.appendChild(darkModeToggleDiv);
+
+    document.body.appendChild(headerDiv);
+}
+
+function renderContainers(svgNamespace) {
+    const containerIds = [
+        "profile-container",
+        "experience-container",
+        "projects-container",
+        "education-container",
+        "skills-container",
+        "certifications-container",
+        "why-container"
+    ];
+
+    containerIds.forEach(containerId => {
+        const containerDiv = document.createElement("div");
+        const containerHeader = document.createElement("div");
+
+        containerDiv.setAttribute("id", containerId);
+        containerDiv.setAttribute("class", "container");
+
+        containerHeader.setAttribute("id", containerId + "-header");
+        containerHeader.setAttribute("class", "container-header");
+
+        document.body.appendChild(containerHeader);
+        document.body.appendChild(containerDiv);
+
+    });
+
+    renderHeaders(svgNamespace);
+    renderContainerContent(containerIds);
+}
+
+function renderProfileContainerContent(container) {
+    let h1 = document.createElement("h1");
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    let p4 = document.createElement("p");
+
+    h1.textContent = "I'm a results-driven software engineer with 5+ years of professional experience in full-stack development with a primary focus on the backend.";
+    p1.textContent = "I'm proficient in various programming languages, including C#, Java, and TypeScript.";
+    p2.textContent = "I have a proven ability to create high quality scalable applications. I'm eager to learn and ready to bring my experience to a challenging role.";
+    p3.textContent = "I'm a believer in the OSS philosophy. All of my personal projects are open source, including this site.";
+    p4.textContent = "I'm also a subscriber to the KISS principle. I believe that code should be effective, simple, and easy to understand.";
+
+    container.appendChild(h1);
+    container.appendChild(p1);
+    container.appendChild(p2);
+    container.appendChild(p3);
+    container.appendChild(p4);
+}
+
+function renderExperienceContainerContent(container) {
+    let h1 = document.createElement("h1");
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    let p4 = document.createElement("p");
+    let p5 = document.createElement("p");
+
+    h1.textContent = "Senior Engineer @ GEICO: 2020 - Present";
+    p1.textContent = "Primarily developing in C#, SQL, and React";
+    p2.textContent = "Winner of GEICO's 2025 Q4 Dream Team Award";
+    p3.textContent = "Worked on a small team developing a best in class policy servicing site";
+    p4.textContent = "Architected and solo-developed customer dashboard for real-time monitoring of vehicle locations and statuses";
+    p5.textContent = "Designed and developed rewrite of internal telematics website, including expanding access beyond internal users";
+
+    container.appendChild(h1);
+    container.appendChild(p1);
+    container.appendChild(p2);
+    container.appendChild(p3);
+    container.appendChild(p4);
+    container.appendChild(p5);
+}
+
+function renderEducationContainerContent(container) {
+    let h1 = document.createElement("h1");
+    let p1 = document.createElement("p");
+
+    h1.textContent = "Western Governors University: 2020";
+    p1.textContent = "Bachelor of Science in Computer Science";
+
+    container.appendChild(h1);
+    container.appendChild(p1);
+}
+
+function renderSkillsContainerContent(container) {
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    let p4 = document.createElement("p");
+    let a = document.createElement("a");
+
+    p1.textContent = "6 years professional experience with .NET, SQL, Typescript, React, Java, and CosmosDB";
+    p2.textContent = "Independent development with Python and C/C++";
+    p3.textContent = "Scrum and Agile trained";
+    a.setAttribute("href", "https://github.com/mgelfius");
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener noreferrer");
+
+    p4.appendChild(a);
+    container.appendChild(p1);
+    container.appendChild(p2);
+    container.appendChild(p3);
+    container.appendChild(p4);
+}
+
+function renderCertificationsContainerContent(container) {
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+
+    p1.textContent = "Microsoft Azure Fundamentals - August 2022";
+    p2.textContent = "ITIL IT Service Management - March 2020";
+    p3.textContent = "CompTIA Project+ - February 2020";
+
+    container.appendChild(p1);
+    container.appendChild(p2);
+    container.appendChild(p3);
+}
+
+function renderWhyContainerContent(container) {
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+
+    p1.textContent = "This site is 100% hand-crafted code. There is no AI generated code here.";
+    p2.textContent = "Along with this, there are no libraries used. This was created with vanilla JavaScript and CSS.";
+    p3.textContent = "I want this website to showcase my skills and stand as a testament to my creativity and problem solving abilities.";
+
+    container.appendChild(p1);
+    container.appendChild(p2);
+    container.appendChild(p3);
+}
+
+function renderContainerContent(containerIds) {
+    containerIds.forEach(containerId => {
+        const container = document.getElementById(containerId);
+        if (container) {
+            switch (containerId) {
+                case "profile-container":
+                    renderProfileContainerContent(container);
+                    break;
+                case "experience-container":
+                    renderExperienceContainerContent(container);
+                    break;
+                case "education-container":
+                    renderEducationContainerContent(container);
+                    break;
+                case "skills-container":
+                    renderSkillsContainerContent(container);
+                    break;
+                case "certifications-container":
+                    renderCertificationsContainerContent(container);
+                    break;
+                case "why-container":
+                    renderWhyContainerContent(container);
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+}
+
 function renderContainerHeader(containerId, headerTitle, svgNamespace) {
     const headerDiv = document.createElement("div");
     const headerH1 = document.createElement("h1");
@@ -114,12 +311,13 @@ function renderProject(projectTitle, projectDescription, projectLink, projectIma
 }
 
 function renderFooter(svgNamespace) {
-    const footer = document.getElementById("footer");
-    if (footer) {
-        renderLinkedIn(footer, svgNamespace);
-        renderGitHub(footer, svgNamespace);
-        renderStartSpikeGame(footer);
-    }
+    const footer = document.createElement("div");
+    footer.setAttribute("id", "footer");
+    footer.setAttribute("class", "footer");
+    renderLinkedIn(footer, svgNamespace);
+    renderGitHub(footer, svgNamespace);
+    renderStartSpikeGame(footer);
+    document.body.appendChild(footer);
 }
 
 function renderLinkedIn(footer, svgNamespace) {
@@ -155,7 +353,7 @@ function renderStartSpikeGame(footer) {
     containingDiv.setAttribute("id", "start-game-button");
     containingDiv.setAttribute("class", "button");
 
-    containingDiv.addEventListener("click", function() {
+    containingDiv.addEventListener("click", function () {
         startSpikeGame();
         containingDiv.blur();
     });
@@ -214,21 +412,14 @@ function renderFooterIcon(href, viewbox, d, style, footer, svgNamespace, contain
     footer.appendChild(containingDiv);
 }
 
-function renderAll() {
-    const svgNamespace = "http://www.w3.org/2000/svg";
-    renderHeaders(svgNamespace);
-    renderProjects();
-    renderFooter(svgNamespace);
-}
-
 function startSpinning(elementId) {
     const githubIcon = document.getElementById(elementId);
     const viewHeight = window.innerHeight;
-    
+
     let currentRotation = 0;
 
     requestAnimationFrame(rotate);
-    
+
     function rotate() {
         currentRotation += rotationSpeed;
         githubIcon.style.transform = `translateY(-${0.04 * viewHeight - 5}px) rotate(${currentRotation}deg)`;
@@ -278,17 +469,17 @@ function slideSpike() {
 
 function isInContact(githubBox, linkedinBox) {
     return !(githubBox.right < linkedinBox.left ||
-             githubBox.left > linkedinBox.right ||
-             githubBox.bottom < linkedinBox.top);
+        githubBox.left > linkedinBox.right ||
+        githubBox.bottom < linkedinBox.top);
 }
 
 function triggerJump(event) {
     const githubIcon = document.getElementById('github-icon');
 
     if (event.code === 'Space') {
-        const timing = (1200 + rotationSpeed * 10) * (2.4/slideSpeed);
+        const timing = (1200 + rotationSpeed * 10) * (2.4 / slideSpeed);
         githubIcon.setAttribute("animation", `jumpAnimation ${timing}ms !important`);
-        if(!githubIcon.classList.contains('jump')) {
+        if (!githubIcon.classList.contains('jump')) {
             githubIcon.classList.add('jump');
             setTimeout(() => {
                 githubIcon.classList.remove('jump');
@@ -313,7 +504,14 @@ function gameOver() {
     document.getElementById('github-icon').classList.remove('jump');
 
     linkedinSvg.removeEventListener('animationend', startGameFunction);
-    window.removeEventListener('keydown', triggerJump);
+
+    if (window.innerWidth >= 900) { 
+        window.removeEventListener('keydown', triggerJump);
+    }
+    else {
+        window.removeEventListener('pointerdown', triggerJump);
+    }
+    
 }
 
 function startGameFunction(event) {
@@ -323,7 +521,7 @@ function startGameFunction(event) {
     }
 }
 
- function startSpikeGame() {
+function startSpikeGame() {
     const linkedinIcon = document.getElementById('linkedin-icon-svg');
     const footer = document.getElementById('footer');
 
@@ -331,9 +529,21 @@ function startGameFunction(event) {
 
     linkedinIcon.classList.add('spike');
     linkedinIcon.addEventListener('animationend', startGameFunction);
-    
-    window.addEventListener('keydown', triggerJump);
- }
+    if (window.innerWidth >= 900) { 
+        window.addEventListener('keydown', triggerJump);
+    }
+    else {
+        window.addEventListener('pointerdown', triggerJump);
+    }
+}
+
+function renderAll() {
+    const svgNamespace = "http://www.w3.org/2000/svg";
+    renderHeader();
+    renderContainers(svgNamespace);
+    renderProjects();
+    renderFooter(svgNamespace);
+}
 
 function main() {
     renderAll();
