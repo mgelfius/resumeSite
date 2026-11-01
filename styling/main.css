@@ -353,6 +353,13 @@ p a {
 }
 
 @media (max-width: 900px) {
+    html {
+        overflow-x: hidden;
+        margin: 0;
+        width: 100vw;
+        max-width: 100%;
+    }
+
     .project {
         height: 80vw;
         width: 80vw;

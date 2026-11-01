@@ -476,7 +476,7 @@ function isInContact(githubBox, linkedinBox) {
 function triggerJump(event) {
     const githubIcon = document.getElementById('github-icon');
 
-    if (event.code === 'Space') {
+    if (event.code === 'Space' || (event.type === 'pointerdown' && window.innerWidth < 900)) {
         const timing = (1200 + rotationSpeed * 10) * (2.4 / slideSpeed);
         githubIcon.setAttribute("animation", `jumpAnimation ${timing}ms !important`);
         if (!githubIcon.classList.contains('jump')) {
